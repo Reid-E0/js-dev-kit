@@ -5,13 +5,15 @@
     "scripts": {
         "prestart": "babel-node buildScripts/startMessage.js",
         "open:src": "babel-node buildScripts/srcServer.js",
-        "start": "npm-run-all --parallel open:src lint:watch test:watch",
+        "start": "npm-run-all --parallel open:src lint:watch test:watch start-mockapi",
         "lint": "esw webpack.config.* src buildScripts --color",
         "lint:watch": "npm run lint -- --watch",
         "localtunnel": "lt --port 3000",
         "share": "npm-run-all --parallel start localtunnel",
         "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
-        "test:watch": "npm run test -- --watch"
+        "test:watch": "npm run test -- --watch",
+        "mock-data": "babel-node buildScripts/generateMockData",
+        "start-mockapi": "json-server --watch src/api/db.json --port 3001"
     },
     "author": "Reid E.",
     "license": "MIT",
