@@ -1,2 +1,2 @@
 import chalk from 'chalk';
-console.log(chalk.green('Launching app in dev mode')); //eslint-disable-line no-console
+console.log(chalk.green('App is Live')); //eslint-disable-line no-console
